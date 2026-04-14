@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MC Server - Planning Meeting</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Meeting minutes for the MC Server project planning session">
+    <link rel="icon" href="assets/favicon.ico">
+  </head>
+  <body>
+    <header>
+      <h1>MC Server Project</h1>
+      <h2>First Planning Meeting</h2>
+      <nav>
+        <a href="#attendance">Attendance</a> |
+        <a href="#agenda">Agenda</a> |
+        <a href="#unfinished">Unfinished Business</a> |
+        <a href="#new-business">New Business</a> |
+        <a href="#comments">Comments</a> |
+        <a href="#media">Media</a> |
+        <a href="#feedback">Feedback Form</a>
+      </nav>
+      <hr>
+    </header>
+
+    <main>
+      <section>
+        <h2>Meeting Information</h2>
+        <p><strong>Meeting Type:</strong> Planning Session</p>
+        <p><strong>Date:</strong> April 14, 2026</p>
+        <p><strong>Time:</strong> 8:00 PM - 9:00 PM</p>
+        <p><strong>Location:</strong> Discord Voice Channel #meeting-room</p>
+      </section>
+
+      <section id="attendance">
+        <h2>Attendance</h2>
+        <h3>Present</h3>
+        <ul>
+          <li><b>Yu Wu</b> (Server Owner)</li>
+          <li>Yu Yu (Redstone Engineer)</li>
+          <li>Wu Wu (Builder)</li>
+          <li>Wy UU (Plugin Developer)</li>
+        </ul>
+        <h3>Absent</h3>
+        <ul>
+          <li>Ww Yy (Resource Gatherer) - <i>got lost in the Nether</i></li>
+        </ul>
+      </section>
+
+      <section id="agenda">
+        <h2>Agenda</h2>
+        <ol>
+          <li>Decide on the server version and mod loader</li>
+          <li>Plan the spawn area and world border size</li>
+          <li>Discuss server rules and anti-grief measures</li>
+          <li>Assign roles for building, redstone, and plugins</li>
+          <li>Pick a date for the server grand opening</li>
+        </ol>
+      </section>
+
+      <section id="unfinished">
+        <h2>Unfinished Business</h2>
+        <p>This is the first official meeting for the MC Server project, so there is no unfinished business.</p>
+        <p>However, Yu Wu mentioned that everyone should have <em>Java Edition installed and updated</em> before the next session.</p>
+      </section>
+
+      <section id="new-business">
+        <h2>New Business</h2>
+        <div>
+          <h3>Server Setup Proposals</h3>
+          <p>The team discussed several key decisions for the server:</p>
+          <ul>
+            <li>Run on <span>Minecraft 1.21.5</span> with Paper as the server software</li>
+            <li>Set the world border to 10,000 blocks from spawn</li>
+            <li>Enable hard mode for the survival experience</li>
+            <li>Use a shared resource pack for custom textures</li>
+          </ul>
+
+          <h3>Technical Decisions</h3>
+          <p>Wy UU will set up the server on a <strong>dedicated Linux VPS with 8GB RAM</strong> to handle up to 20 players.</p>
+          <p>Wu Wu suggested using CoreProtect for block logging so griefing can be rolled back easily.</p>
+        </div>
+      </section>
+
+      <section id="comments">
+        <h2>Comments, Questions, and Concerns</h2>
+        <p><b>Note:</b> Keep the plugin list small at launch to avoid lag.</p>
+        <p><strong>Important:</strong> Everyone needs to whitelist their Minecraft username before opening day.</p>
+        <p><i>Idea from Yu Yu:</i> Build a massive redstone door at the spawn entrance.</p>
+        <p><em>Concern from Wu Wu:</em> If we enable hard mode from day one, new players might ragequit.</p>
+        <p>A question was raised during the meeting:<br>Should we allow TNT and fire spread, or disable them to prevent accidental destruction?</p>
+      </section>
+
+      <section id="media">
+        <h2>Meeting Media</h2>
+
+        <h3>Spawn Area Sketch</h3>
+        <img src="assets/diagram.png" alt="Rough sketch of the planned MC server spawn area layout" width="400">
+
+        <h3>Audio Recording of Discussion</h3>
+        <audio controls>
+          <source src="assets/meeting-audio.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+
+        <h3>Video Recording of Meeting</h3>
+        <video controls width="400">
+          <source src="assets/meeting-video.mp4" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
+      </section>
+
+      <section>
+        <h2>Additional Notes</h2>
+        <details>
+          <summary>Click to view extra planning notes</summary>
+          <p>Yu Yu wants to build a redstone-powered railway connecting all player bases.</p>
+          <p>Wu Wu is planning a medieval castle theme for the spawn area.</p>
+          <p>The next meeting is tentatively scheduled for <b>April 21, 2026</b>.</p>
+        </details>
+      </section>
+
+      <section id="feedback">
+        <h2>Meeting Feedback Form</h2>
+        <form>
+          <fieldset>
+            <legend>Share Your Feedback</legend>
+
+            <p>
+              <label for="name-input">Your Minecraft Username:</label>
+              <input type="text" id="name-input" name="name">
+            </p>
+
+            <p>
+              <label for="date-input">When can you join the next meeting?</label>
+              <input type="date" id="date-input" name="next-meeting-date">
+            </p>
+
+            <p>Which topics were most useful to discuss?</p>
+            <label>
+              <input type="checkbox" name="useful-part" value="setup">
+              Server setup
+            </label><br>
+            <label>
+              <input type="checkbox" name="useful-part" value="rules">
+              Server rules
+            </label><br>
+            <label>
+              <input type="checkbox" name="useful-part" value="builds">
+              Build plans
+            </label>
+
+            <p>Are you excited for the server launch?</p>
+            <label>
+              <input type="radio" name="excited" value="yes">
+              Yes
+            </label><br>
+            <label>
+              <input type="radio" name="excited" value="no">
+              No
+            </label><br>
+            <label>
+              <input type="radio" name="excited" value="maybe">
+              Maybe
+            </label>
+
+            <p>
+              <label for="role-input">Your preferred server role:</label>
+              <input list="roles" id="role-input" name="role">
+              <datalist id="roles">
+                <option value="Builder"></option>
+                <option value="Redstone Engineer"></option>
+                <option value="Explorer"></option>
+                <option value="PvP Specialist"></option>
+                <option value="Farmer"></option>
+              </datalist>
+            </p>
+
+            <p>
+              <label for="priority-select">Top priority for the server:</label>
+              <select id="priority-select" name="priority">
+                <option value="spawn">Finish spawn area</option>
+                <option value="plugins">Install plugins</option>
+                <option value="farms">Build farms</option>
+                <option value="nether">Set up Nether hub</option>
+              </select>
+            </p>
+
+            <p>
+              <label for="comments-area">Any other suggestions?</label><br>
+              <textarea id="comments-area" name="comments" rows="4" cols="50"></textarea>
+            </p>
+
+            <button type="submit">Submit Feedback</button>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <hr>
+      <p>Meeting minutes prepared for <b>CSE 110 Lab 2</b></p>
+      <p><a href="https://github.com/">MC Server GitHub Repository</a></p>
+    </footer>
+  </body>
+</html>
