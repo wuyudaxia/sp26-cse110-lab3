@@ -219,3 +219,112 @@ footer {
 footer a {
   color: rgb(14 116 144);
 }
+
+/* =============================================================================
+   Issue #4 — required selector coverage (CSE 110 Lab 3 checklist)
+   Each subsection is labeled so it is easy to map to the write-up.
+   ============================================================================= */
+
+/* Universal selector (*) */
+main * {
+  scroll-margin-top: 0.35rem;
+}
+
+/* Element selector + descendant combinator (ancestor descendant) */
+#new-business div p {
+  max-width: 70ch;
+}
+
+/* Child combinator (parent > child) */
+#agenda > h2 {
+  border-bottom: 1px dashed rgba(100, 116, 139, 0.55);
+  padding-bottom: 0.25rem;
+}
+
+/* Adjacent sibling combinator (A + B) */
+#attendance h3 + ul {
+  margin-top: 0.35rem;
+}
+
+/* General sibling combinator (A ~ B) */
+#comments p ~ p {
+  border-left: 3px solid rgba(34, 112, 84, 0.25);
+  padding-left: 0.65rem;
+}
+
+/* Selector list (element, element, …) */
+h3,
+legend {
+  letter-spacing: 0.02em;
+}
+
+/* Class selector (.class) */
+.mc-page {
+  isolation: isolate;
+}
+
+.mc-panel {
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+/* ID selector (#id) */
+#mc-footer-tagline {
+  font-size: 0.95rem;
+}
+
+/* Combined selector (element.class) */
+p.mc-lede {
+  font-weight: 600;
+}
+
+li.mc-role-line {
+  font-style: italic;
+}
+
+/* Attribute selector ([attr=value]) */
+[data-mc-section="media"] {
+  outline: 1px solid rgba(148, 163, 184, 0.35);
+  outline-offset: 4px;
+}
+
+input[name="useful-part"] {
+  accent-color: rgb(34 112 84);
+}
+
+/* Pseudo-class selector (examples beyond :hover/:active) */
+label:has(input[name="useful-part"]:checked) {
+  color: rgb(21 64 50);
+  font-weight: 600;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(14, 165, 233, 0.55);
+  outline-offset: 2px;
+}
+
+#media img:hover {
+  filter: saturate(1.05);
+}
+
+/* :has() relational selector */
+#media:has(audio) h2 {
+  text-decoration: underline;
+  text-decoration-color: rgba(34, 112, 84, 0.35);
+}
+
+/* Native nested selectors (& …) */
+#feedback {
+  & fieldset {
+    background: rgba(255, 255, 255, 0.55);
+  }
+
+  & textarea {
+    border-radius: 6px;
+  }
+
+  & select {
+    border-radius: 6px;
+  }
+}
