@@ -1,7 +1,221 @@
-/* MC Server meeting minutes — main stylesheet (CSE 110 Lab 3)
-   Issue #2: external CSS is the primary place for page styling. */
+/* =============================================================================
+   MC Server meeting minutes — CSE 110 Lab 3 (external stylesheet)
+   Issue #3: core colors, units, box model, text, sizing, display, position,
+   :hover / :active, Google Font (linked in index.html), CSS variables.
+   Flexbox, Grid, media queries, and selector checklist live in later issues.
+   ============================================================================= */
 
+/* --- CSS variables + fallback (Lab: var with backup) --- */
+:root {
+  --page-surface: hsl(210 40% 98%);
+  --accent: rgb(34 112 84);
+  --accent-muted: rgba(34, 112, 84, 0.12);
+  --border-soft: #cbd5e1;
+  --text-strong: var(--missing-token-will-fallback, #0f172a);
+}
+
+/* --- Base typography (third-party font from Google Fonts) --- */
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  margin: 0;
+  font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1rem; /* relative: rem */
+  line-height: 1.45;
+  color: var(--text-strong, rgb(15 23 42));
+  background-color: var(--page-surface, #f8fafc);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(214, 232, 255, 0.35));
+  /* margin longhand (Lab: long + short + auto elsewhere) */
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+/* --- Color formats (rgb, rgba, hex, hsl, hsla, named, display-p3, color-mix) --- */
+header h1 {
+  color: color(srgb 0.08 0.22 0.45);
+  color: color-mix(in srgb, #0f172a 70%, #38bdf8 30%);
+}
+
+header h2 {
+  color: hsl(215 25% 35%);
+}
+
+main > section:first-of-type p {
+  color: #1e293b;
+}
+
+#comments p {
+  color: rgba(30, 41, 59, 0.92);
+}
+
+#comments em {
+  color: DarkOrange;
+}
+
+#agenda li::marker {
+  color: hsla(142 55% 35% / 0.9);
+}
+
+/* --- Layout sizing + centered column (relative + absolute units) --- */
+main {
+  width: 92%;
+  max-width: 52rem;
+  min-width: 18rem;
+  margin: 1.25rem auto 2.5rem; /* shorthand + horizontal auto */
+  position: relative;
+  left: 0;
+  padding: 0.5rem 1rem 1.5rem; /* padding shorthand */
+}
+
+/* --- Header: sticky, padding longhand, border longhand, radius --- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: rgba(248, 250, 252, 0.92);
+  backdrop-filter: blur(6px);
+  padding-top: 0.75rem;
+  padding-right: 1rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-width: 2px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+  border-top-color: var(--border-soft);
+  border-right-color: var(--border-soft);
+  border-bottom-color: var(--border-soft);
+  border-left-color: var(--border-soft);
+  border-radius: 14px;
+}
+
+/* --- Display: none / inline-block / block (Lab: ≥2 from the listed set) --- */
+#layout-spacer {
+  display: none;
+}
+
+header nav a {
+  display: inline-block;
+  padding: 0.15em 0.35em; /* relative: em */
+  border-radius: 6px;
+}
+
+footer {
+  display: block;
+}
+
+summary {
+  display: inline-block;
+}
+
+#feedback label {
+  display: inline;
+}
+
+/* --- Nav links: hover / active (Lab pseudo-classes) --- */
+header nav a:hover {
+  background-color: var(--accent-muted);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+header nav a:active {
+  color: rgb(15 118 110);
+  transform: translateY(1px);
+}
+
+/* --- Sections: margin shorthand, padding longhand, border shorthand --- */
+main section {
+  margin: 1rem 0.5rem 1.25rem 0.5rem; /* margin shorthand (TRBL) */
+  padding-top: 0.75rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  background-color: rgba(255, 255, 255, 0.78);
+  border: 1px solid color-mix(in srgb, var(--border-soft) 70%, #ffffff 30%);
+  border-radius: 10px;
+}
+
+/* --- Text styling --- */
+main section h2 {
+  text-align: left;
+  color: var(--accent, rgb(34 112 84));
+}
+
+#comments p strong {
+  text-decoration: underline;
+}
+
+#unfinished p em {
+  text-decoration: line-through;
+  text-decoration-color: rgba(148, 163, 184, 0.9);
+}
+
+#unfinished p:first-of-type {
+  text-align: justify;
+}
+
+/* --- Media block: absolute units (px + pt + mm) + min/max sizing --- */
+#media img {
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  min-height: 8mm;
+  border-radius: 8px;
+}
+
+#media audio {
+  width: 95%;
+  max-width: 36rem;
+}
+
+#media video {
+  min-width: 12rem;
+  outline: 0.25pt solid rgba(15, 23, 42, 0.15);
+}
+
+/* --- Form: relative positioning on button + active state --- */
+#feedback button[type="submit"] {
+  position: relative;
+  top: 0;
+  padding: 0.5rem 1rem;
+  font-size: 11pt;
+  border-radius: 8px;
+  border: 2px solid rgb(34 112 84);
+  background: hsl(152 40% 92%);
+  color: rgb(21 64 50);
+  cursor: pointer;
+}
+
+#feedback button[type="submit"]:hover {
+  background: hsl(152 38% 88%);
+}
+
+#feedback button[type="submit"]:active {
+  top: 1px;
+  background: hsl(152 45% 85%);
+}
+
+fieldset {
+  border: 2px dashed hsla(215, 20%, 40%, 0.45);
+  border-radius: 12px;
+}
+
+legend {
+  padding: 0 0.5rem;
+  color: hsl(215 28% 22%);
+}
+
+/* --- Footer --- */
+footer {
+  margin: 2rem 0 3rem 0; /* margin shorthand (top / right / bottom / left) */
+  text-align: center;
+  color: rgb(71 85 105);
+}
+
+footer a {
+  color: rgb(14 116 144);
 }
