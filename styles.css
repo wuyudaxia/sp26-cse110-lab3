@@ -1,0 +1,7 @@
+/* MC Server meeting minutes — main stylesheet (CSE 110 Lab 3)
+   Issue #2: external CSS is the primary place for page styling. */
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  margin: 0;
+}
