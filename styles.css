@@ -2,7 +2,7 @@
    MC Server meeting minutes — CSE 110 Lab 3 (external stylesheet)
    Issue #3: core colors, units, box model, text, sizing, display, position,
    :hover / :active, Google Font (linked in index.html), CSS variables.
-   Flexbox, Grid, media queries, and selector checklist live in later issues.
+   Selectors: Issue #4 block below. Flexbox / Grid / @media: Issue #5 block at file end.
    ============================================================================= */
 
 /* --- CSS variables + fallback (Lab: var with backup) --- */
@@ -97,7 +97,7 @@ header {
   display: none;
 }
 
-header nav a {
+header .site-nav a {
   display: inline-block;
   padding: 0.15em 0.35em; /* relative: em */
   border-radius: 6px;
@@ -116,13 +116,13 @@ summary {
 }
 
 /* --- Nav links: hover / active (Lab pseudo-classes) --- */
-header nav a:hover {
+header .site-nav a:hover {
   background-color: var(--accent-muted);
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }
 
-header nav a:active {
+header .site-nav a:active {
   color: rgb(15 118 110);
   transform: translateY(1px);
 }
@@ -160,20 +160,26 @@ main section h2 {
 
 /* --- Media block: absolute units (px + pt + mm) + min/max sizing --- */
 #media img {
-  width: 400px;
+  width: min(400px, 100%);
   max-width: 100%;
   height: auto;
   min-height: 8mm;
   border-radius: 8px;
+  display: block;
 }
 
 #media audio {
-  width: 95%;
-  max-width: 36rem;
+  width: 100%;
+  max-width: 100%;
+  display: block;
 }
 
 #media video {
-  min-width: 12rem;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-width: 0;
+  display: block;
   outline: 0.25pt solid rgba(15, 23, 42, 0.15);
 }
 
@@ -326,5 +332,81 @@ textarea:focus-visible {
 
   & select {
     border-radius: 6px;
+  }
+}
+
+/* =============================================================================
+   Issue #5 — Flexbox, CSS Grid, and width-based media queries (Lab 3)
+   ============================================================================= */
+
+/* Flex container: nav has 7+ links (more than two children). 4+ flex properties. */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Grid container: .media-layout wraps 3 .media-card articles. */
+.media-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: start;
+  justify-items: stretch;
+  min-width: 0;
+}
+
+article.media-card {
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.65);
+  min-width: 0;
+  overflow: hidden;
+}
+
+article.media-card h3 {
+  margin-top: 0;
+}
+
+/* Phone-first tightening */
+@media (max-width: 599px) {
+  main {
+    width: 100%;
+    padding: 0.35rem 0.55rem 1rem;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #media img,
+  #media video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Tablet: two-column media grid */
+@media (min-width: 600px) and (max-width: 899px) {
+  .media-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1rem;
+    row-gap: 1.1rem;
+  }
+}
+
+/* Desktop: three-column media grid + slightly wider reading column */
+@media (min-width: 900px) {
+  .media-layout {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+
+  main {
+    max-width: 56rem;
   }
 }

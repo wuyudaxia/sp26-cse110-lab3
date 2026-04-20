@@ -20,13 +20,13 @@
     <header>
       <h1 style="letter-spacing: 0.02em;">MC Server Project</h1>
       <h2>First Planning Meeting</h2>
-      <nav>
-        <a href="#attendance">Attendance</a> |
-        <a href="#agenda">Agenda</a> |
-        <a href="#unfinished">Unfinished Business</a> |
-        <a href="#new-business">New Business</a> |
-        <a href="#comments">Comments</a> |
-        <a href="#media">Media</a> |
+      <nav class="site-nav" aria-label="Meeting sections">
+        <a href="#attendance">Attendance</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#unfinished">Unfinished Business</a>
+        <a href="#new-business">New Business</a>
+        <a href="#comments">Comments</a>
+        <a href="#media">Media</a>
         <a href="#feedback">Feedback Form</a>
       </nav>
       <span id="layout-spacer" aria-hidden="true"></span>
@@ -104,20 +104,28 @@
       <section id="media" data-mc-section="media">
         <h2>Meeting Media</h2>
 
-        <h3>Spawn Area Sketch</h3>
-        <img src="assets/diagram.png" alt="Rough sketch of the planned MC server spawn area layout" width="400">
+        <div class="media-layout">
+          <article class="media-card">
+            <h3>Spawn Area Sketch</h3>
+            <img src="assets/diagram.png" alt="Rough sketch of the planned MC server spawn area layout" width="400">
+          </article>
 
-        <h3>Audio Recording of Discussion</h3>
-        <audio controls>
-          <source src="assets/meeting-audio.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+          <article class="media-card">
+            <h3>Audio Recording of Discussion</h3>
+            <audio controls>
+              <source src="assets/meeting-audio.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </article>
 
-        <h3>Video Recording of Meeting</h3>
-        <video controls width="400">
-          <source src="assets/meeting-video.mp4" type="video/mp4">
-          Your browser does not support the video element.
-        </video>
+          <article class="media-card">
+            <h3>Video Recording of Meeting</h3>
+            <video controls>
+              <source src="assets/meeting-video.mp4" type="video/mp4">
+              Your browser does not support the video element.
+            </video>
+          </article>
+        </div>
       </section>
 
       <section>
