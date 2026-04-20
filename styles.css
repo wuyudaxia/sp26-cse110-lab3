@@ -31,7 +31,8 @@ body {
 
 /* --- Color formats (rgb, rgba, hex, hsl, hsla, named, display-p3, color-mix) --- */
 header h1 {
-  color: color(srgb 0.08 0.22 0.45);
+  /* rgb：各验证器都认识；color-mix 仍可能产生警告，属新语法 */
+  color: rgb(20 56 115);
   color: color-mix(in srgb, #0f172a 70%, #38bdf8 30%);
 }
 
