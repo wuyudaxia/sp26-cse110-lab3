@@ -1,3 +1,3 @@
-# CSE 110 Lab 2
+# CSE 110 Lab 3
 
-Published site: https://wuyudaxia.github.io/Lab2_Starter/
+Published site: https://wuyudaxia.github.io/sp26-cse110-lab3/
